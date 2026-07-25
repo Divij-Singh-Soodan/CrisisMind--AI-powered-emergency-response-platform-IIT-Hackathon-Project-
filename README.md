@@ -1,0 +1,2 @@
+# CrisisMind--AI-powered-emergency-response-platform-IIT-Hackathon-Project-
+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
