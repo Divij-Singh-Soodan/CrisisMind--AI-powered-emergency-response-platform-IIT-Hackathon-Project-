@@ -53,13 +53,13 @@ Its responsibilities are:
 
 * Receive the user’s emergency description.
 * Process the request.
-* Communicate with Gemini AI.
+* Communicate with  OpenAI API.
 * Return structured results to the frontend.
 * Handle errors and API communication.
 
 ⸻
 
-3. AI Engine (Gemini)
+3. AI Engine (GPT 4.0 model using  OpenAI API )
 
 This is responsible for understanding the emergency.
 
