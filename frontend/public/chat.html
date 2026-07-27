@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CrisisMind | Emergency AI Assistance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#b8c4ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#173bab",
+                    "primary": "#00288e",
+                    "on-tertiary-container": "#ffa399",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "primary-fixed": "#dde1ff",
+                    "on-primary-container": "#a8b8ff",
+                    "primary-container": "#1e40af",
+                    "outline-variant": "#c4c5d5",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "outline": "#757684",
+                    "tertiary": "#700006",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-container": "#9b000d",
+                    "inverse-primary": "#b8c4ff",
+                    "on-surface-variant": "#444653",
+                    "secondary-container": "#d0e1fb",
+                    "on-tertiary-fixed": "#410002",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-surface": "#191c1e",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary-container": "#54647a",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container": "#eceef0",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-dim": "#d8dadc",
+                    "surface-bright": "#f7f9fb",
+                    "secondary": "#505f76",
+                    "on-background": "#191c1e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001453",
+                    "surface-tint": "#3755c3",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "40px",
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "2xl": "48px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .ai-pulse {
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(30, 64, 175, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(30, 64, 175, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(30, 64, 175, 0); }
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-surface shadow-sm docked full-width top-0 z-50 flex justify-between items-center w-full px-margin-mobile py-sm md:px-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h1 class="font-headline-md-mobile text-headline-md-mobile md:font-headline-md md:text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CrisisMind</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-error text-on-error font-label-md text-label-md px-lg py-sm rounded-full font-bold active:scale-95 transition-transform shadow-lg">
+                SOS
+            </button>
+</div>
+</header>
+<!-- Main Chat Canvas -->
+<main class="flex-1 overflow-y-auto px-margin-mobile py-lg md:px-margin-desktop relative">
+<div class="max-w-4xl mx-auto space-y-lg pb-48">
+<!-- AI Welcome Message -->
+<div class="flex flex-col items-start space-y-sm">
+<div class="flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">CrisisMind AI</span>
+</div>
+<div class="ai-pulse bg-primary-container text-on-primary-container p-lg rounded-xl rounded-tl-none shadow-sm max-w-[85%] md:max-w-[70%]">
+<p class="font-body-lg text-body-lg">I'm CrisisMind AI. Please stay calm and describe your emergency.</p>
+</div>
+<span class="font-label-sm text-label-sm text-outline px-sm">Now</span>
+</div>
+<!-- Contextual Insight (AI Panel) -->
+<div class="bg-[#F0F4FF] border border-primary-fixed-dim rounded-xl p-lg flex gap-md items-start shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+<div class="space-y-xs">
+<h3 class="font-title-lg text-title-lg text-primary">Emergency Protocol Active</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Your location is being shared with nearby first responders. Continue speaking with me to help us coordinate the best response.</p>
+</div>
+</div>
+<!-- User Choice Chips -->
+<div class="flex flex-col items-center gap-md py-md">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Quick Select Incident Type</p>
+<div class="flex flex-wrap justify-center gap-sm">
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-container hover:border-primary px-lg py-md rounded-full font-label-md text-label-md text-on-surface transition-all flex items-center gap-xs shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">monitor_heart</span> Chest Pain
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-container hover:border-primary px-lg py-md rounded-full font-label-md text-label-md text-on-surface transition-all flex items-center gap-xs shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">air</span> Difficulty Breathing
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-container hover:border-primary px-lg py-md rounded-full font-label-md text-label-md text-on-surface transition-all flex items-center gap-xs shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">minor_crash</span> Road Accident
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-container hover:border-primary px-lg py-md rounded-full font-label-md text-label-md text-on-surface transition-all flex items-center gap-xs shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span> Fire
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-container hover:border-primary px-lg py-md rounded-full font-label-md text-label-md text-on-surface transition-all flex items-center gap-xs shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">person_off</span> Fainting
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-container hover:border-primary px-lg py-md rounded-full font-label-md text-label-md text-on-surface transition-all flex items-center gap-xs shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">bloodtype</span> Severe Bleeding
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-container hover:border-primary px-lg py-md rounded-full font-label-md text-label-md text-on-surface transition-all flex items-center gap-xs shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">pest_control</span> Snake Bite
+                    </button>
+</div>
+</div>
+<!-- Decorative Asset - AI Background Logic -->
+<div class="relative w-full h-48 rounded-2xl overflow-hidden mt-xl">
+
+<div class="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-background to-transparent">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest">AI monitoring active</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Input Section -->
+<footer class="fixed bottom-0 left-0 w-full glass-panel border-t border-outline-variant/30 pb-margin-mobile pt-md px-margin-mobile z-50">
+<div class="max-w-4xl mx-auto flex items-end gap-sm md:gap-md">
+<!-- Action Icons Group -->
+<div class="flex gap-sm mb-1">
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors active:scale-90" title="Attach Image">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-primary-container text-on-primary-container shadow-md hover:brightness-110 transition-all active:scale-90" title="Voice Input">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Input Field -->
+<div class="flex-1 relative">
+<textarea class="w-full bg-white border border-outline-variant rounded-2xl px-lg py-md font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none shadow-sm" oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'" placeholder="Type or speak your emergency..." rows="1"></textarea>
+</div>
+<!-- Send Button -->
+<button id="sendBtn" class="mb-1 w-12 h-12 flex items-center justify-center rounded-full bg-primary text-on-primary shadow-md hover:brightness-110 active:scale-90 transition-all">
+    <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<!-- Navigation Simulation (Hidden on Focused Task screens per rules, but included for context if needed later) -->
+<div class="max-w-md mx-auto mt-sm flex justify-center gap-xl md:hidden">
+<div class="h-1.5 w-32 bg-on-surface/10 rounded-full"></div>
+</div>
+</footer>
+<!-- Interactive Script for Micro-interactions -->
+<script>
+        // Auto-focus the input on load
+        window.addEventListener('load', () => {
+            const textarea = document.querySelector('textarea');
+            if(textarea) textarea.focus();
+        });
+
+        // Simple button active state simulation
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Haptic feedback simulation could go here
+                console.log('Interaction logged');
+            });
+        });
+
+        // Prevent body scroll when textarea expands
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            if (this.scrollHeight > 150) {
+                this.style.overflowY = 'auto';
+            } else {
+                this.style.overflowY = 'hidden';
+            }
+        });
+        document.getElementById("sendBtn").addEventListener("click", () => {
+    window.parent.location.href = "/loading";
+});
+    </script>
+</body></html>

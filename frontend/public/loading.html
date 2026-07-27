@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CrisisMind | Processing Emergency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#b8c4ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#173bab",
+                    "primary": "#00288e",
+                    "on-tertiary-container": "#ffa399",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "primary-fixed": "#dde1ff",
+                    "on-primary-container": "#a8b8ff",
+                    "primary-container": "#1e40af",
+                    "outline-variant": "#c4c5d5",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "outline": "#757684",
+                    "tertiary": "#700006",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-container": "#9b000d",
+                    "inverse-primary": "#b8c4ff",
+                    "on-surface-variant": "#444653",
+                    "secondary-container": "#d0e1fb",
+                    "on-tertiary-fixed": "#410002",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-surface": "#191c1e",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary-container": "#54647a",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container": "#eceef0",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-dim": "#d8dadc",
+                    "surface-bright": "#f7f9fb",
+                    "secondary": "#505f76",
+                    "on-background": "#191c1e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001453",
+                    "surface-tint": "#3755c3",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface": "#f7f9fb",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "40px",
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "2xl": "48px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .step-inactive { opacity: 0.3; filter: grayscale(1); }
+        .step-active { opacity: 1; filter: grayscale(0); }
+        .progress-line {
+            transition: height 0.5s ease-in-out;
+        }
+        .ai-glow-border {
+            box-shadow: inset 0 0 0 2px rgba(30, 64, 175, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar from JSON -->
+<header class="bg-surface dark:bg-on-surface shadow-sm docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile py-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h1 class="font-headline-md-mobile text-headline-md-mobile font-bold text-primary dark:text-primary-fixed-dim">CrisisMind</h1>
+</div>
+<button class="bg-error text-on-error px-4 py-1 rounded-full font-label-md text-label-md active:scale-95 transition-transform">
+                SOS
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center px-margin-mobile relative">
+<!-- Animated Background Element (Atmospheric) -->
+<div class="absolute inset-0 z-0 opacity-40">
+
+</div>
+<div class="z-10 w-full max-w-md flex flex-col items-center">
+<!-- Elegant Loading Centerpiece -->
+<div class="relative w-48 h-48 mb-12 flex items-center justify-center">
+<!-- Outer Pulse Rings -->
+<div class="absolute inset-0 rounded-full bg-primary/5 animate-pulse-ring"></div>
+<div class="absolute inset-4 rounded-full bg-primary/10 animate-pulse-ring" style="animation-delay: 1s;"></div>
+<!-- Main Spinner -->
+<div class="relative w-24 h-24">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-container-highest" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="none" id="loading-circle" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="283" stroke-linecap="round" stroke-width="8" style="transition: stroke-dashoffset 0.5s ease-out;"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+</div>
+</div>
+</div>
+<!-- Progress Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-lg p-lg ai-glow-border border border-outline-variant/20 relative overflow-hidden">
+<!-- Subtle AI Background Pattern -->
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-6xl">grid_view</span>
+</div>
+<div class="mb-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Emergency Response Protocol</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">AI-Assisted Assessment in Progress</p>
+</div>
+<!-- Steps List -->
+<div class="mt-lg space-y-lg relative">
+<!-- Progress Line Tracking -->
+<div class="absolute left-[11px] top-[12px] bottom-[12px] w-[2px] bg-surface-container-highest"></div>
+<div class="absolute left-[11px] top-[12px] w-[2px] bg-primary progress-line" id="progress-line" style="height: 0%;"></div>
+<!-- Step 1 -->
+<div class="flex items-start gap-md step-inactive transition-all duration-500" id="step-0">
+<div class="relative z-10 w-6 h-6 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary hidden" id="dot-0"></div>
+<span class="material-symbols-outlined text-[14px] text-primary hidden" id="check-0">check</span>
+</div>
+<span class="font-body-md text-on-surface">Analyzing emergency...</span>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-md step-inactive transition-all duration-500" id="step-1">
+<div class="relative z-10 w-6 h-6 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary hidden" id="dot-1"></div>
+<span class="material-symbols-outlined text-[14px] text-primary hidden" id="check-1">check</span>
+</div>
+<span class="font-body-md text-on-surface">Determining severity...</span>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-md step-inactive transition-all duration-500" id="step-2">
+<div class="relative z-10 w-6 h-6 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary hidden" id="dot-2"></div>
+<span class="material-symbols-outlined text-[14px] text-primary hidden" id="check-2">check</span>
+</div>
+<span class="font-body-md text-on-surface">Preparing first-aid instructions...</span>
+</div>
+<!-- Step 4 -->
+<div class="flex items-start gap-md step-inactive transition-all duration-500" id="step-3">
+<div class="relative z-10 w-6 h-6 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary hidden" id="dot-3"></div>
+<span class="material-symbols-outlined text-[14px] text-primary hidden" id="check-3">check</span>
+</div>
+<span class="font-body-md text-on-surface">Finding nearby emergency services...</span>
+</div>
+</div>
+<!-- Footer Insight Panel -->
+<div class="mt-xl p-md rounded-lg bg-[#F0F4FF] border border-primary/10">
+<div class="flex items-center gap-xs mb-xs">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">AI Insight</span>
+</div>
+<p class="font-label-md text-label-md text-on-secondary-container leading-tight">
+                        Analyzing audio data and location coordinates to prioritize dispatcher routing. Stay calm and follow upcoming instructions.
+                    </p>
+</div>
+</div>
+<!-- Reassurance Text -->
+<p class="mt-lg text-center font-label-md text-label-md text-on-surface-variant max-w-xs">
+                Your situation is being monitored in real-time. Do not close this window.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar (Suppressed for transactional loading state as per rule "Shell Visibility & Relevance") -->
+<!-- We prioritize the content canvas for focused journey -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = 4;
+            let currentStep = 0;
+            const circle = document.getElementById('loading-circle');
+            const progressLine = document.getElementById('progress-line');
+            const radius = 45;
+            const circumference = 2 * Math.PI * radius;
+
+            function updateProgress(step) {
+                // Update Circular Progress
+                const progress = (step + 1) / steps;
+                const offset = circumference - (progress * circumference);
+                circle.style.strokeDashoffset = offset;
+
+                // Update Progress Line
+                const lineHeight = (step / (steps - 1)) * 100;
+                progressLine.style.height = `${lineHeight}%`;
+
+                // Update Steps Visuals
+                for (let i = 0; i < steps; i++) {
+                    const stepEl = document.getElementById(`step-${i}`);
+                    const dotEl = document.getElementById(`dot-${i}`);
+                    const checkEl = document.getElementById(`check-${i}`);
+
+                    if (i < step) {
+                        // Completed
+                        stepEl.classList.remove('step-inactive');
+                        stepEl.classList.add('step-active');
+                        dotEl.classList.add('hidden');
+                        checkEl.classList.remove('hidden');
+                    } else if (i === step) {
+                        // Active
+                        stepEl.classList.remove('step-inactive');
+                        stepEl.classList.add('step-active');
+                        dotEl.classList.remove('hidden');
+                        checkEl.classList.add('hidden');
+                    } else {
+                        // Future
+                        stepEl.classList.add('step-inactive');
+                        stepEl.classList.remove('step-active');
+                        dotEl.classList.add('hidden');
+                        checkEl.classList.add('hidden');
+                    }
+                }
+            }
+
+            // Simulated progress cycle
+            const interval = setInterval(() => {
+                updateProgress(currentStep);
+                currentStep++;
+                if (currentStep >= steps) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        // In a real app, we would transition to the next screen here
+                        console.log("Assessment Ready");
+                    }, 1000);
+                }
+            }, 2500);
+
+            // Initial call
+            updateProgress(0);
+        });
+        setTimeout(() => {
+    window.parent.location.href = "/dashboard";
+}, 3000);
+    </script>
+</body></html>

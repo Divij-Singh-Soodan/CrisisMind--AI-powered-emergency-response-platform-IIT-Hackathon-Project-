@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CrisisMind | Emergency Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b8c4ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-primary-fixed-variant": "#173bab",
+                        "primary": "#00288e",
+                        "on-tertiary-container": "#ffa399",
+                        "error": "#ba1a1a",
+                        "background": "#f7f9fb",
+                        "primary-fixed": "#dde1ff",
+                        "on-primary-container": "#a8b8ff",
+                        "primary-container": "#1e40af",
+                        "outline-variant": "#c4c5d5",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "outline": "#757684",
+                        "tertiary": "#700006",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-container": "#9b000d",
+                        "inverse-primary": "#b8c4ff",
+                        "on-surface-variant": "#444653",
+                        "secondary-container": "#d0e1fb",
+                        "on-tertiary-fixed": "#410002",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-container": "#54647a",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#505f76",
+                        "on-background": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001453",
+                        "surface-tint": "#3755c3",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "margin-desktop": "40px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-red {
+            animation: pulse-red-border 2s infinite;
+        }
+        @keyframes pulse-red-border {
+            0% { border-color: rgba(186, 26, 26, 0.5); box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.4); }
+            70% { border-color: rgba(186, 26, 26, 1); box-shadow: 0 0 0 10px rgba(186, 26, 26, 0); }
+            100% { border-color: rgba(186, 26, 26, 0.5); box-shadow: 0 0 0 0 rgba(186, 26, 26, 0); }
+        }
+        .ai-glow-border {
+            box-shadow: inset 0 0 0 2px rgba(30, 64, 175, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen pb-32">
+<!-- Top Navigation -->
+<nav class="sticky top-0 z-50 bg-surface dark:bg-on-surface shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-size: 32px;">psychology</span>
+<span class="font-headline-md-mobile text-headline-md-mobile md:font-headline-md md:text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CrisisMind</span>
+</div>
+<button class="bg-tertiary-container text-on-tertiary px-4 py-1 rounded-full font-label-md text-label-md active:scale-95 transition-transform">
+            SOS
+        </button>
+</nav>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Severity & Summary Header -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg mb-lg">
+<!-- Severity Badge -->
+<div class="lg:col-span-4 flex flex-col gap-md">
+<div class="bg-surface-container-lowest p-xl rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-error pulse-red">
+<div class="flex items-center gap-sm mb-sm text-error">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">report</span>
+<h2 class="font-title-lg text-title-lg uppercase tracking-wider">Critical (Red)</h2>
+</div>
+<p class="font-body-md text-on-surface-variant">Immediate professional medical intervention required. The situation exhibits life-threatening markers.</p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="font-label-md text-label-md">Location access enabled</span>
+</div>
+</div>
+<!-- AI Summary Panel -->
+<div class="lg:col-span-8">
+<div class="bg-[#F0F4FF] ai-glow-border p-xl rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] h-full">
+<div class="flex items-center gap-2 mb-md text-primary">
+<span class="material-symbols-outlined">auto_awesome</span>
+<h3 class="font-label-md text-label-md uppercase font-bold">Situation Summary</h3>
+</div>
+<p class="font-body-lg text-body-lg leading-relaxed text-on-surface">
+                        System detects high-probability anaphylaxis based on symptom input. Respiratory distress and rapid heart rate observed. Patient exhibits facial swelling and reported contact with allergens. Urgent stabilization and epinephrine administration prioritized.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Quick Action Buttons (Primary) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md mb-lg">
+<button class="bg-error text-on-error py-4 px-lg rounded-lg flex items-center justify-center gap-sm font-title-lg hover:brightness-110 active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined">call</span>
+                Call Emergency Services
+            </button>
+<button class="bg-primary text-on-primary py-4 px-lg rounded-lg flex items-center justify-center gap-sm font-title-lg hover:bg-primary-container active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined">share_location</span>
+                Share Location
+            </button>
+<button class="bg-secondary text-on-secondary py-4 px-lg rounded-lg flex items-center justify-center gap-sm font-title-lg hover:bg-on-secondary-fixed-variant active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined">group</span>
+                Notify Contacts
+            </button>
+</div>
+<!-- Guidance Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg mb-lg">
+<!-- Checklist Card -->
+<div class="bg-surface-container-lowest p-xl rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-primary">
+<h3 class="font-title-lg text-title-lg mb-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">checklist</span>
+                    Immediate Actions
+                </h3>
+<ul class="space-y-md">
+<li class="flex items-start gap-md p-md bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary">vaccines</span>
+<span class="font-body-md">Administer Epinephrine (EpiPen) immediately if available.</span>
+</li>
+<li class="flex items-start gap-md p-md bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary">airline_seat_flat_angled</span>
+<span class="font-body-md">Lay patient flat on back and raise feet. Do not sit up.</span>
+</li>
+<li class="flex items-start gap-md p-md bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary">timer</span>
+<span class="font-body-md">Monitor breathing and heart rate every 2 minutes.</span>
+</li>
+<li class="flex items-start gap-md p-md bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary">block</span>
+<span class="font-body-md">Remove the source of the allergen if visible.</span>
+</li>
+<li class="flex items-start gap-md p-md bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+<span class="font-body-md">Stay on the line with dispatcher until help arrives.</span>
+</li>
+</ul>
+</div>
+<!-- Danger Warning Card -->
+<div class="bg-surface-container-lowest p-xl rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border-l-4 border-error">
+<h3 class="font-title-lg text-title-lg mb-lg text-error flex items-center gap-sm">
+<span class="material-symbols-outlined">warning</span>
+                    Things To Avoid
+                </h3>
+<div class="bg-error-container/20 p-xl rounded-xl border border-error/10">
+<ul class="space-y-lg">
+<li class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error">cancel</span>
+<span class="font-body-lg font-semibold">DO NOT give any food or oral medications.</span>
+</li>
+<li class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error">cancel</span>
+<span class="font-body-lg font-semibold">DO NOT allow the patient to walk or stand up.</span>
+</li>
+<li class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error">cancel</span>
+<span class="font-body-lg font-semibold">DO NOT leave the patient alone at any time.</span>
+</li>
+</ul>
+</div>
+<div class="mt-lg p-md bg-surface-container-high rounded-lg text-on-surface-variant text-label-md italic">
+                    Note: Improper movement can cause a sudden drop in blood pressure. Keep horizontal position.
+                </div>
+</div>
+</div>
+<!-- Nearby Services -->
+<section>
+<h3 class="font-title-lg text-title-lg mb-md px-2">Nearby Emergency Services</h3>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Map Interface -->
+<div class="lg:col-span-2 relative h-80 rounded-xl overflow-hidden shadow-lg">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean, high-contrast digital map showing a city grid in professional shades of blue and gray. Glowing markers indicate nearby emergency services like hospitals and fire stations. The lighting is soft and daylight-balanced, emphasizing clarity and navigation. Minimalist UI overlays show current location and route lines." data-location="San Francisco" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxI4LAYQlpKyiCamYdr91uFwy5TUcug4U6tznPa3UTuyg5bm8tRL_yE--UyQ1Njx_n0JltB3xxdmilCkITiiy-5xuwD2AgGslF8yUDT6PnAhy9ghYyhufYCEbeF1Qt_bfeYn7RCl1Laq7jFrKOJ5C2XOtxWckFlhZqeXBdVRoeUzX5008pCUspVBbJXKuDpMKNc2z92fyYXKblZe1B0vAmJ8Tm9bs9uaJ65MNDCHRWuYOp7DNas8zMDEUTTeR4KmZ8Cqg4mNrD5Hs')"></div>
+<div class="absolute bottom-4 left-4 bg-surface/90 backdrop-blur px-md py-sm rounded-lg shadow-md border border-outline-variant flex items-center gap-2">
+<span class="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+<span class="text-label-md">Real-time Location Tracked</span>
+</div>
+</div>
+<!-- Hospital Cards -->
+<div class="space-y-md">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-md border border-outline-variant">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-lg text-label-md font-bold">St. Mary's Medical Center</h4>
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">distance</span>
+                                    0.8 miles away (4 mins)
+                                </p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 rounded uppercase font-bold">Emergency Dept</span>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg flex items-center justify-center gap-1 text-label-md hover:bg-primary-container active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-size: 18px;">directions</span> Navigate
+                            </button>
+<button class="flex-none aspect-square bg-surface-container-high text-primary p-2 rounded-lg flex items-center justify-center hover:bg-surface-variant active:scale-95 transition-all">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-md border border-outline-variant">
+<div class="flex justify-between items-start mb-md">
+<div>
+<h4 class="font-title-lg text-label-md font-bold">Central Fire Station #4</h4>
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">distance</span>
+                                    1.2 miles away (6 mins)
+                                </p>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] px-2 py-1 rounded uppercase font-bold">First Response</span>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg flex items-center justify-center gap-1 text-label-md hover:bg-primary-container active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-size: 18px;">directions</span> Navigate
+                            </button>
+<button class="flex-none aspect-square bg-surface-container-high text-primary p-2 rounded-lg flex items-center justify-center hover:bg-surface-variant active:scale-95 transition-all">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-dim shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center px-4 pb-4 pt-2 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-secondary-container group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-sm text-label-sm">Assess</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">history</span>
+<span class="font-label-sm text-label-sm">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">library_books</span>
+<span class="font-label-sm text-label-sm">Resources</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for checklist
+        document.querySelectorAll('li.flex.items-start').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('opacity-50');
+                const icon = item.querySelector('.material-symbols-outlined');
+                if (item.classList.contains('opacity-50')) {
+                    icon.textContent = 'check_circle';
+                    icon.style.color = 'var(--tw-color-on-surface-variant)';
+                } else {
+                    // This is hacky because we don't have the original icon stored, but for a demo it works
+                    // In a real app we'd map these properly
+                }
+            });
+        });
+    </script>
+</body></html>
